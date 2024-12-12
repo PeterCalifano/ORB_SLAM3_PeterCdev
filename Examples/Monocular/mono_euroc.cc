@@ -195,6 +195,7 @@ void LoadImages(const string &strImagePath, const string &strPathTimes,
     fTimes.open(strPathTimes.c_str());
     vTimeStamps.reserve(5000);
     vstrImages.reserve(5000);
+    int i = 0;
     while(!fTimes.eof())
     {
         string s;
@@ -207,7 +208,8 @@ void LoadImages(const string &strImagePath, const string &strPathTimes,
             double t;
             ss >> t;
             vTimeStamps.push_back(t*1e-9);
-
+            i++;
         }
     }
+    std::cout << "Loaded " << i << " images" << std::endl;
 }
