@@ -207,6 +207,12 @@ add_executable(mono_tum_vi
         Examples/Monocular/mono_tum_vi.cc)
 target_link_libraries(mono_tum_vi ${PROJECT_NAME})
 
+
+add_executable(mono_custom
+        Examples/Monocular/mono_custom.cc)
+target_link_libraries(mono_custom ${PROJECT_NAME})
+
+
 if(realsense2_FOUND)
     add_executable(mono_realsense_t265
             Examples/Monocular/mono_realsense_t265.cc)
@@ -216,6 +222,9 @@ if(realsense2_FOUND)
             Examples/Monocular/mono_realsense_D435i.cc)
     target_link_libraries(mono_realsense_D435i ${PROJECT_NAME})
 endif()
+
+
+
 
 #Monocular inertial examples
 set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${PROJECT_SOURCE_DIR}/Examples/Monocular-Inertial)
