@@ -6,6 +6,9 @@ def process_csv(input_file, output_file):
     # Read the CSV file
     df = pd.read_csv(input_file)
 
+    # Remove the first 10 entries from each column
+    df = df.iloc[10:]
+
     # Create a new column with file names based on the timestamps
     result_df = pd.DataFrame({
         'Timestamp[nanosec]': df.iloc[:, 0],  # First column
