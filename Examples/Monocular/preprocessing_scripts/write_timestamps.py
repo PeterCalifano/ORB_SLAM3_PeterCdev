@@ -1,5 +1,5 @@
 import pandas as pd
-import sys
+import sys, os
 
 
 def write_timestamps_to_txt(input_file, output_file):
@@ -27,11 +27,21 @@ def write_timestamps_to_txt(input_file, output_file):
 
 
 if __name__ == "__main__":
-    if len(sys.argv) != 3:
-        print("Usage: python write_timestamps_to_txt.py <input_file.csv> <output_file.txt>")
-        sys.exit(1)
+    if len(sys.argv) < 3:
+        print('Output file path not specified. Default is "timestamps.txt" in same path as input file.')
+
+        if len(sys.argv) < 2:
+            print("Error: input file not specified.")
+            print("Usage: python write_timestamps_to_txt.py <input_file.csv> <output_file.txt>")
+            sys.exit(1)
 
     input_file = sys.argv[1]
-    output_file = sys.argv[2]
+
+    if len(sys.argv) == 3:
+        output_file = sys.argv[2]
+    else:
+        # Get path of input file
+        input_path = os.path.dirname(input_file)
+        output_file = f"{input_path}/timestamps.txt"
 
     write_timestamps_to_txt(input_file, output_file)
