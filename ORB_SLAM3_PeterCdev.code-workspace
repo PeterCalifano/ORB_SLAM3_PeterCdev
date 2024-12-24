@@ -4,5 +4,9 @@
 			"path": "."
 		}
 	],
-	"settings": {}
+	"settings": {
+		"[csv]": {
+			"editor.inlayHints.maximumLength": 0
+		}
+	}
 }
