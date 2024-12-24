@@ -13,6 +13,7 @@ def rename_images(folder_path, timestamps):
 
     if len(images) != len(timestamps):
         print("Error: Number of images and timestamps do not match.")
+        print(f"Number of images: {len(images)}, Number of timestamps: {len(timestamps)}")
         sys.exit(1)
 
     for img, timestamp in zip(images, timestamps):
